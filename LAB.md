@@ -34,7 +34,7 @@ Your file store should:
       * returns object with that id
       * else return null
     * `.getAll(<table>, cb)`
-      * eturns array of all objects
+      * returns array of all objects
 * Use an npm package to find a library to assign id's
 * Use the supplied table name as a folder to store object in
 * Use JSON.parse and JSON.serialize
@@ -43,7 +43,7 @@ Standard repository/dev stuff: README, package.json, travis-ci, tests, meaningfu
 
 ##Rubric:
 
-  * Tests: 3pts
-  * Async Coding: 3pts
-  * Functional Correct Behavior: 1pts
-  * Project (Module) Organization: 1pts
+* Tests: 3pts
+* Async Coding: 3pts
+* Functional Correct Behavior: 1pts
+* Project (Module) Organization: 1pts
