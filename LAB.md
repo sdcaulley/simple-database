@@ -25,19 +25,20 @@ Your file store should:
     * `.save(<table>, <objectToSave>, cb)`
       * returns `objectToSave` with added `_id` property
       * error if object already has id
-    * `.update(<table>, <objectToSave>)
-      * returns <objectToSave>
+    * `.update(<table>, <objectToSave>)`
+      * returns `<objectToSave>`
       * error if object does not have id property, or id does not exist
-    * `.remove(<id>, cb)
+    * `.remove(<id>, cb)`
       * returns number of files removed
     * `.get(<table>, <id>, cb)`
       * returns object with that id
-      * else return null
+      * else return `null`
     * `.getAll(<table>, cb)`
       * returns array of all objects
 * Use an npm package to find a library to assign id's
 * Use the supplied table name as a folder to store object in
 * Use JSON.parse and JSON.serialize
+
 
 Standard repository/dev stuff: README, package.json, travis-ci, tests, meaningful commits, named npm scripts, etc.
 
