@@ -39,7 +39,7 @@ Your file store should:
       * returns array of all objects
 * Use an npm package to find a library to assign id's
 * Use the supplied table name as a folder to store object in
-* Use JSON.parse and JSON.serialize
+* Use `JSON.parse` and `JSON.stringify`
 
 
 Standard repository/dev stuff: README, package.json, travis-ci, tests, meaningful commits, named npm scripts, etc.
