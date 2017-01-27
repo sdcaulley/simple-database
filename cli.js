@@ -1,3 +1,7 @@
 const create = require('./lib/create.js');
+const data = require('./lib/data.js');
 
-create();
+
+
+create.createDB();
+data.createDataObj();
