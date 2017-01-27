@@ -24,6 +24,6 @@
     "mocha": "^3.2.0"
   },
   "dependencies": {
-    "mysequence": "^1.0.4"
+    "simpleid": "^1.0.0"
   }
 }
