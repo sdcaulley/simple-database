@@ -1,7 +1,4 @@
-const create = require('./lib/create.js');
-const data = require('./lib/data.js');
+const dataObj = require('./lib/data.js');
+const testData = require('./test/test-data');
 
-
-
-create.createDB();
-data.createDataObj();
+dataObj.runProgram(testData);
