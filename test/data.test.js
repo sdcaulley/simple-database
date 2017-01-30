@@ -1,8 +1,8 @@
 const assert = require('assert');
 const fs = require('fs');
 const findRemove = require('find-remove');
-const testData = require('./test-data');
 const dataObj = require('../lib/data.js');
+const testData = require('./test-data');
 
 
 describe('testing for data manipulation and configuration', function() {
@@ -16,14 +16,9 @@ describe('testing for data manipulation and configuration', function() {
     });
 
     it('create data object for storing in database', function() {
-        const output = dataObj.createDataObj(testData);
+        const output = dataObj.createDataObj({ name: 'steve', grade: 'B' });
         assert.equal(output.name, 'steve');
         assert.equal(output.grade, 'B');
     });
 
-    it('e2e test of initial document creation', function() {
-        const output = dataObj.runProgram(testData);
-        assert.equal(output.name, 'steve');
-        assert.equal(output.grade, 'B');
-    });
 });

@@ -1,0 +1,40 @@
+[{
+        "database": "students",
+        "collection": "english",
+        "name": "John",
+        "grade": "B"
+    },
+    {
+        "database": "students",
+        "collection": "spanish",
+        "name": "Suzie",
+        "grade": "A",
+        "_id": "XYZ789"
+    },
+    {
+        "database": "pets",
+        "collection": "dogs",
+        "owner": "Mike",
+        "petName": "Tux",
+        "_id": "ABC123"
+    },
+    {
+        "database": "pets",
+        "collection": "cats",
+        "owner": "Jake",
+        "petName": "Whiskers"
+    },
+    {
+        "database": "students",
+        "collection": "spanish",
+        "_id": "XYZ789",
+        "name": "Maria",
+        "update": true
+    },
+    {
+        "database": "pets",
+        "collection": "dogs",
+        "_id": "ABC123",
+        "delete": true
+    }
+]
