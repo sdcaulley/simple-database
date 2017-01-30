@@ -4,7 +4,7 @@ const assert = require('assert');
 describe('update a record', function() {
     it('update a record', function(done) {
         //grade originally said 'A'
-        const output = update.update('students/spanish', { database: 'students', collection: 'spanish', name: 'Suzie', grade: 'C', _id: 'XYZ789' }, function(err, data) {
+        update.update('students/spanish', { database: 'students', collection: 'spanish', name: 'Suzie', grade: 'C', _id: 'XYZ789' }, function(err, data) {
             assert.deepEqual(data, { database: 'students', collection: 'spanish', name: 'Suzie', grade: 'C', _id: 'XYZ789' });
             done();
         });

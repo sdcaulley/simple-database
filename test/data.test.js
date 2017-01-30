@@ -20,8 +20,7 @@ describe('testing for data manipulation and configuration', function() {
                 if (item._id) {
                     create.createDBDir(item);
                 } else {
-                    const newObj = dataObj.createDataObj(item);
-                    create.createDBDir(newObj);
+                    create.createDBDir(dataObj.createDataObj(item));
                 }
             });
         }
