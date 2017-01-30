@@ -15,6 +15,7 @@ describe('testing for data manipulation and configuration', function() {
             findRemove(testDir, { dir: '*', files: '*.*' });
             fs.rmdirSync(testDir);
         }
+        create.createProgramDir();
     });
 
     it('create data object for storing in database', function() {
