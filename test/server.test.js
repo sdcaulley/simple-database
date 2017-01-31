@@ -9,7 +9,7 @@ const dataObj = require('../lib/data.js');
 const testDir = './db-program';
 const port = 63000;
 
-describe('testing TCP/client relations', function() {
+describe.only('testing TCP/client relations', () => {
     before(done => {
         findRemove(testDir, { dir: '*', files: '*.*' });
         fs.rmdirSync(testDir);
@@ -49,7 +49,19 @@ describe('testing TCP/client relations', function() {
         });
     });
 
-    it('empty for now', function() {
+    it('client get-all fetches all records in "spanish"', done => {
+        //collection, callback
+        const message = {
+            method: 'getAll',
+            collection: 'students/spanish',
+        };
 
+        client.once('data', data => {
+            const response = JSON.parse(data);
+            assert.deepEqual(response.data, []);
+            done();
+        });
+
+        client.write(JSON.stringify(message));
     });
 });
