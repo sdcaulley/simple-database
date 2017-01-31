@@ -79,4 +79,70 @@ describe.only('testing TCP/client relations', () => {
         });
         client.write(JSON.stringify(message));
     });
+
+    it('client removes record and returns the number of records removed', done => {
+        //collection, id, callback
+        const message = {
+            method: 'remove',
+            collection: 'students/spanish',
+            id: 'XYZ789'
+        };
+
+        client.once('data', data => {
+            const response = JSON.parse(data);
+            assert.equal(response.data, 1);
+            done();
+        });
+        client.write(JSON.stringify(message));
+    });
+
+    it('client saves a new record in the database', done => {
+        //collection, object, callback
+        const message = {
+            method: 'save',
+            collection: 'students/english',
+            data: {
+                database: 'students',
+                collection: 'english',
+                name: 'lucy',
+                grade: 'A'
+            }
+        };
+
+        client.once('data', data => {
+            const response = JSON.parse(data);
+            const saved = response.data;
+            assert.ok(saved._id);
+            done();
+        });
+
+        client.write(JSON.stringify(message));
+    });
+
+    it('client updates an already existing record', done => {
+        //collection, object, callback
+        const message = {
+            method: 'update',
+            collection: 'pets/dogs',
+            data: {
+                database: 'pets',
+                collection: 'dogs',
+                _id: 'ABC123',
+                owner: 'Billy',
+                petName: 'Tux'
+            }
+        };
+        client.once('data', data => {
+            const response = JSON.parse(data);
+            assert.deepEqual(response.data, {
+                database: 'pets',
+                collection: 'dogs',
+                _id: 'ABC123',
+                owner: 'Billy',
+                petName: 'Tux'
+            });
+            done();
+        });
+        client.write(JSON.stringify(message));
+    });
 });
