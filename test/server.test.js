@@ -32,13 +32,10 @@ describe.only('testing TCP/client relations', () => {
         done();
     });
 
-    before(done => {
-        server.start({ baseDir: testDir, port: port }, () => { done(); });
-    });
-
     after(done => {
         client.end(done);
         server.stop();
+        done();
     });
 
     let client;
