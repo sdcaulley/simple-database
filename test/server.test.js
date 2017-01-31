@@ -17,6 +17,11 @@ describe.only('testing TCP/client relations', () => {
     });
 
     before(done => {
+        // use our method to "start" the server
+        server.start({ port: port }, () => { done(); });
+    });
+
+    before(done => {
 
         function testSave(data) {
             data.forEach(function(item) {
@@ -35,7 +40,6 @@ describe.only('testing TCP/client relations', () => {
     after(done => {
         client.end(done);
         server.stop();
-        done();
     });
 
     let client;
