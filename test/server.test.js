@@ -58,10 +58,25 @@ describe.only('testing TCP/client relations', () => {
 
         client.once('data', data => {
             const response = JSON.parse(data);
-            assert.deepEqual(response.data, []);
+            assert.equal(response.data.length, 2);
             done();
         });
 
+        client.write(JSON.stringify(message));
+    });
+    it('client get returns record by id', done => {
+        //collection, id, callback
+        const message = {
+            method: 'get',
+            collection: 'pets/dogs',
+            id: 'ABC123'
+        };
+
+        client.once('data', data => {
+            const response = JSON.parse(data);
+            assert.deepEqual(response.data, { "database": "pets", "collection": "dogs", "owner": "Mike", "petName": "Tux", "_id": "ABC123" });
+            done();
+        });
         client.write(JSON.stringify(message));
     });
 });
