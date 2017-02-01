@@ -1,0 +1,31 @@
+{
+  "name": "simple-database",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cli.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "mocha -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdcaulley/simple-database.git"
+  },
+  "author": "sdcaulley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdcaulley/simple-database/issues"
+  },
+  "homepage": "https://github.com/sdcaulley/simple-database#readme",
+  "devDependencies": {
+    "find-remove": "^1.0.0",
+    "mocha": "^3.2.0"
+  },
+  "dependencies": {
+    "mkdirp": "^0.5.1",
+    "simpleid": "^1.0.0"
+  }
+}
