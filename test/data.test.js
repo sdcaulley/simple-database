@@ -4,7 +4,7 @@ const findRemove = require('find-remove');
 const dataObj = require('../lib/data.js');
 const create = require('../lib/create.js');
 const testData = require('./test-data');
-const simpleDB = require('../lib/simple-db');
+const simpleDB = require('../lib/simple-db-promise');
 
 describe('testing for data manipulation and configuration', () => {
     const testDir = './db-program';
@@ -24,20 +24,20 @@ describe('testing for data manipulation and configuration', () => {
             data.forEach((item) => {
                 if (item._id) {
                     create.createDBDir(item, (err, succ) => {
-                        console.log('testSave err: ', err);
-                        console.log('testSave succ: ', succ);
+                        // console.log('testSave err: ', err);
+                        // console.log('testSave succ: ', succ);
                     });
                 }
                 create.createDBDir(dataObj.createDataObj(item), (err, succ) => {
-                    console.log('testSave err: ', err);
-                    console.log('testSave succ: ', succ);
+                    // console.log('testSave err: ', err);
+                    // console.log('testSave succ: ', succ);
                 });
             });
         }
 
         create.createProgramDir((err, files) => {
-            console.log('err: ', err);
-            console.log('files: ', files);
+            // console.log('err: ', err);
+            // console.log('files: ', files);
             testSave(testData);
             done();
         });
@@ -55,6 +55,8 @@ describe('testing for data manipulation and configuration', () => {
 describe('get-all lists all records in a collection', () => {
     it('get-all list all records in a collection', done => {
         simpleDB.getAll('pets/dogs', (err, results) => {
+            if (err) done(err);
+            console.log('results: ', results);
             assert.equal(results.length, 3);
             done();
         });
