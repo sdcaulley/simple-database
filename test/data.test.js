@@ -53,33 +53,27 @@ describe('testing for data manipulation and configuration', () => {
 });
 
 describe('get-all lists all records in a collection', () => {
-    it('get-all list all records in a collection', done => {
+    it('get-all list all records in a collection', () => {
         simpleDB.getAll('pets/dogs', (err, results) => {
-            if (err) done(err);
-            console.log('results: ', results);
+            if (err) console.log(err);
             assert.equal(results.length, 3);
-            done();
         });
     });
 });
 
 describe('get reads the contents of a record', () => {
-    it('read contents of record', done => {
+    it('read contents of record', () => {
         simpleDB.get('pets/dogs', 'ABC123', (err, data) => {
             assert.deepEqual(data, { database: 'pets', collection: 'dogs', owner: 'Mike', petName: 'Tux', _id: 'ABC123' });
-            done();
         });
-
     });
 });
 
 describe('remove deletes the record associated with and id', () => {
-    it('checks to see if record is removed', done => {
+    it('checks to see if record is removed', () => {
         simpleDB.remove('students/spanish', 'XYZ789', (err, output) => {
             assert.equal(output, 1);
-            done();
         });
-
     });
 });
 
