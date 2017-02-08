@@ -78,28 +78,24 @@ describe('remove deletes the record associated with and id', () => {
 });
 
 describe('save adds a new record to the database', () => {
-    it('save checks for _id and throws and error', done => {
+    it('save checks for _id and throws and error', () => {
         simpleDB.save('students/english', { name: 'steve', grade: 'B', _id: 'JKL456' }, (err) => {
             assert.equal(err, 'This record has an id.');
-            done();
         });
     });
 
-    it('save creates new document when there is no _id', done => {
+    it('save creates new document when there is no _id', () => {
         simpleDB.save('students/english', { name: 'steve', grade: 'B' }, (err, output) => {
             assert.ok(output._id);
-            done();
         });
-
     });
 });
 
 describe('update a record', () => {
-    it('update a record', done => {
+    it('update a record', () => {
         //grade originally said 'A'
         simpleDB.update('students/spanish', { database: 'students', collection: 'spanish', name: 'Suzie', grade: 'C', _id: 'XYZ789' }, (err, data) => {
             assert.deepEqual(data, { database: 'students', collection: 'spanish', name: 'Suzie', grade: 'C', _id: 'XYZ789' });
-            done();
         });
 
     });
