@@ -24,20 +24,20 @@ describe('testing for data manipulation and configuration', () => {
             data.forEach((item) => {
                 if (item._id) {
                     create.createDBDir(item, (err, succ) => {
-                        // console.log('testSave err: ', err);
-                        // console.log('testSave succ: ', succ);
+                        console.log('testSave err: ', err);
+                        console.log('testSave succ: ', succ);
                     });
                 }
                 create.createDBDir(dataObj.createDataObj(item), (err, succ) => {
-                    // console.log('testSave err: ', err);
-                    // console.log('testSave succ: ', succ);
+                    console.log('testSave err: ', err);
+                    console.log('testSave succ: ', succ);
                 });
             });
         }
 
         create.createProgramDir((err, files) => {
-            // console.log('err: ', err);
-            // console.log('files: ', files);
+            console.log('err: ', err);
+            console.log('files: ', files);
             testSave(testData);
             done();
         });
